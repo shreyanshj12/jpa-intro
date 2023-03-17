@@ -36,6 +36,10 @@ public class Book {
     this.publisher = bookPublisher;
   }
 
+  public Long getBookId() {
+    return this.id;
+  }
+
   /**
    * Set the title of the book.
    *
