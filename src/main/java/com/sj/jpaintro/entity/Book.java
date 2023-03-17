@@ -1,5 +1,6 @@
 package com.sj.jpaintro.entity;
 
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,9 +25,9 @@ public class Book {
 
   /**
    * Constructor to initialize the Book object.
-
-   * @param title - title of the book
-   * @param isbnNumber - isbn number for the book
+   *
+   * @param title         - title of the book
+   * @param isbnNumber    - isbn number for the book
    * @param bookPublisher - publisher of the book
    */
   public Book(final String title, final String isbnNumber, final String bookPublisher) {
@@ -62,5 +63,24 @@ public class Book {
 
   public String getPublisher() {
     return this.publisher;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+
+    Book book = (Book) o;
+
+    return Objects.equals(id, book.id);
+  }
+
+  @Override
+  public int hashCode() {
+    return id != null ? id.hashCode() : 0;
   }
 }
