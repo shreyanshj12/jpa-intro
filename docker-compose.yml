@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+
+  app:
+    container_name: springboot-jpaintro
+    image: springboot-jpaintro
+    build: .
+    restart: on-failure
+    ports:
+      - "8082:8080"
+    depends_on:
+      - jpaintrodatabase
+  jpaintrodatabase:
+    container_name: jpaintrodb
+    image: postgres
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: jpaintrodb
