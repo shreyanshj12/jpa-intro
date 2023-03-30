@@ -75,6 +75,11 @@
 					<url>jdbc:postgresql://localhost:5432/jpaintrodb</url>
 					<username>postgres</username>
 					<password>postgres</password>
+<!--adding the next three lines and then executing maven plugin generateChangeLog will create the baseline-changelog.xml-->
+<!--this is baseline-changelog.xml that has your existing db tables after liuqibase connects to your database-->
+					<outputChangeLogFile>changelog.xml</outputChangeLogFile>
+					<changeSetAuthor>SJ</changeSetAuthor>
+					<changeLogSchemaName>jpaintrodb</changeLogSchemaName>
 				</configuration>
 				<dependencies>
 					<dependency>
