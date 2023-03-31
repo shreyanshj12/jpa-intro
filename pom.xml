@@ -39,11 +39,15 @@
 			<optional>true</optional>
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
 		</dependency>
 
 		<dependency>
@@ -65,29 +69,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-
-			<plugin>
-				<groupId>org.liquibase</groupId>
-				<artifactId>liquibase-maven-plugin</artifactId>
-				<version>4.2.2</version>
-				<configuration>
-					<url>jdbc:postgresql://localhost:5432/jpaintrodb</url>
-					<username>postgres</username>
-					<password>postgres</password>
-<!--adding the next three lines and then executing maven plugin generateChangeLog will create the baseline-changelog.xml-->
-<!--this is baseline-changelog.xml that has your existing db tables after liuqibase connects to your database-->
-					<outputChangeLogFile>changelog.xml</outputChangeLogFile>
-					<changeSetAuthor>SJ</changeSetAuthor>
-					<changeLogSchemaName>jpaintrodb</changeLogSchemaName>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>org.postgresql</groupId>
-						<artifactId>postgresql</artifactId>
-						<version>42.5.1</version>
-					</dependency>
-				</dependencies>
 			</plugin>
 		</plugins>
 	</build>

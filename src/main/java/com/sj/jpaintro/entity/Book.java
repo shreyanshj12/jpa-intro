@@ -1,16 +1,21 @@
 package com.sj.jpaintro.entity;
 
 import java.util.Objects;
+import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class Book {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
+  @GeneratedValue(generator = "UUID")
+  @GenericGenerator(
+          name = "UUID",
+          strategy = "org.hibernate.id.UUIDGenerator"
+  )
+  private UUID id;
 
   private String bookTitle;
   private String isbn;
@@ -36,7 +41,7 @@ public class Book {
     this.publisher = bookPublisher;
   }
 
-  public Long getBookId() {
+  public UUID getBookId() {
     return this.id;
   }
 
