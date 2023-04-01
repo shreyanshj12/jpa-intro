@@ -1,6 +1,7 @@
 package com.sj.jpaintro.entity;
 
 import java.util.UUID;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,6 +12,7 @@ public class Author {
   @Id
   @GeneratedValue(generator = "UUID")
   @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+  @Column(length = 36, updatable = false, nullable = false)
   private UUID authorId;
 
   private String firstName;
@@ -41,5 +43,21 @@ public class Author {
 
   public String getLastName() {
     return this.lastName;
+  }
+
+  //equals and hashcode
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    Author author = (Author) o;
+
+    return authorId.equals(author.authorId);
+  }
+
+  @Override
+  public int hashCode() {
+    return authorId.hashCode();
   }
 }
