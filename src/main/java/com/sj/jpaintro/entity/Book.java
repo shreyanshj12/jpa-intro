@@ -16,10 +16,18 @@ public class Book {
           strategy = "org.hibernate.id.UUIDGenerator"
   )
   private UUID id;
-
   private String bookTitle;
   private String isbn;
   private String publisher;
+  private UUID authorId;
+
+  public UUID getAuthorId() {
+    return authorId;
+  }
+
+  public void setAuthorId(UUID authorId) {
+    this.authorId = authorId;
+  }
 
   /**
    * no-args constructor always required for an entity.

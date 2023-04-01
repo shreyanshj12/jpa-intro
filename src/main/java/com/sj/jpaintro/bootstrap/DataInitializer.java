@@ -16,11 +16,11 @@ public class DataInitializer implements CommandLineRunner {
 
   @Override
   public void run(final String... args) throws Exception {
-    Book bookDdd = new Book("Domain Driven Design", "123", "RandomHousePublisher");
-    Book savedDdd = bookRepository.save(bookDdd);
-
-    Book bookSia = new Book("Spring in Action", "3434", "Orielly");
-    Book savedSia = bookRepository.save(bookSia);
+//    Book bookDdd = new Book("Domain Driven Design", "123", "RandomHousePublisher");
+//    Book savedDdd = bookRepository.save(bookDdd);
+//
+//    Book bookSia = new Book("Spring in Action", "3434", "Orielly");
+//    Book savedSia = bookRepository.save(bookSia);
 
     bookRepository.findAll().forEach(book -> {
       System.out.println(book.getBookId());

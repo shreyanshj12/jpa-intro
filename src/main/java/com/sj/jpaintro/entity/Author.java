@@ -13,7 +13,7 @@ public class Author {
   @GeneratedValue(generator = "UUID")
   @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
   @Column(length = 36, updatable = false, nullable = false)
-  private UUID authorId;
+  private UUID id;
 
   private String firstName;
   private String lastName;
@@ -35,7 +35,7 @@ public class Author {
   }
 
   public UUID getAuthorId() {
-    return this.authorId;
+    return this.id;
   }
   public String getFirstName() {
     return this.firstName;
@@ -53,11 +53,11 @@ public class Author {
 
     Author author = (Author) o;
 
-    return authorId.equals(author.authorId);
+    return id.equals(author.id);
   }
 
   @Override
   public int hashCode() {
-    return authorId.hashCode();
+    return id.hashCode();
   }
 }
