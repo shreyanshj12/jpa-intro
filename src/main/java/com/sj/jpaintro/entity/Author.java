@@ -26,6 +26,9 @@ public class Author {
     this.firstName = firstName;
     this.lastName = lastName;
   }
+  public void setId(UUID authorId) {
+    this.id = authorId;
+  }
   public void setFirstName(final String name) {
     this.firstName = name;
   }
