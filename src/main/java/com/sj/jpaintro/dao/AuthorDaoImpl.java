@@ -42,8 +42,9 @@ public class AuthorDaoImpl implements AuthorDao {
     Connection connection = null;
     try {
       connection = getConnection();
-      String query = "SELECT * FROM author where id = '" + id + "'";
+      String query = "SELECT * FROM author where id = ?";
       PreparedStatement preparedStatement = connection.prepareStatement(query);
+      preparedStatement.setObject(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
       if(resultSet.next()){
         Author author = new Author();
