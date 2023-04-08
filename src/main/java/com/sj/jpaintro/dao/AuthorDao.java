@@ -5,5 +5,12 @@ import java.util.UUID;
 
 public interface AuthorDao {
 
-  Author getById(UUID id);
+  Author getAuthorById(UUID id);
+
+  Author getAuthorByName(String firstName, String lastName);
+  Author saveAuthor(Author author);
+
+  void updateAuthor(Author saved);
+
+  Integer deleteAuthorById(UUID id);
 }
