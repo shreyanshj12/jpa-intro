@@ -12,7 +12,7 @@ public class Author {
   @Id
   @GeneratedValue(generator = "UUID")
   @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-  @Column(length = 36, updatable = false, nullable = false)
+  @Column(length = 36, nullable = false)
   private UUID id;
 
   private String firstName;
@@ -25,6 +25,9 @@ public class Author {
   public Author(final String firstName, final String lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
+  }
+  public void setId(UUID authorId) {
+    this.id = authorId;
   }
   public void setFirstName(final String name) {
     this.firstName = name;
