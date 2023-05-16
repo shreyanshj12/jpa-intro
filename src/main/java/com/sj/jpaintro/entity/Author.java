@@ -5,9 +5,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
+@Builder
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Author {
   @Id
   @GeneratedValue(generator = "UUID")
@@ -17,33 +23,6 @@ public class Author {
 
   private String firstName;
   private String lastName;
-
-  public Author() {
-
-  }
-
-  public Author(final String firstName, final String lastName) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-  }
-  public void setFirstName(final String name) {
-    this.firstName = name;
-  }
-
-  public void setLastName(final String name) {
-    this.lastName = name;
-  }
-
-  public UUID getAuthorId() {
-    return this.id;
-  }
-  public String getFirstName() {
-    return this.firstName;
-  }
-
-  public String getLastName() {
-    return this.lastName;
-  }
 
   //equals and hashcode
   @Override
