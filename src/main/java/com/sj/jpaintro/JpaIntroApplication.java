@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JpaIntroApplication {
 
 	public static void main(String[] args) {
+		System.out.println("first change");
 		SpringApplication.run(JpaIntroApplication.class, args);
 	}
 
